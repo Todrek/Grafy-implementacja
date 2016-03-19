@@ -1,0 +1,68 @@
+
+
+Rodzaje
+------------------
+-skierowany/nieskierowany
+-wazony/niewazony
+
+
+Reprezentacje
+------------------
+-macierz sasiedztwa
+-macierz incydencji (nie wiem czym ma sie to roznic rozumowaniu od m. sasiedztwa)
+-lista sasiadow
+-struktura, z nastepnikami, mozliwoscia nadania nazw wierzcholkom (zast.: MST(Minimalne drzewa rozpinajace), drzewa TRIE. Te przyklady sa mocno na wyrost.)
+-zbiór(typ? set,vector ?) krawedzi (pary/trojki)
+
+
+
+Zagadnienia
+-------------------
+-cyklicznosc
+-spojnosc
+-najkrotsza/najtansza droga (z wagami)
+-najdluzsza sciezka (srednica grafu)
+-dwudzielnosc
+-mosty i punkty artykulacji
+
+
+
+Algrytmy
+-------------------
+-DFS
+-BFS
+-sortowanie (np. topologiczne)
+-LCA (Lowest common ancestor), funkcja low
+- Bellman-Ford, Dijkstra, Floyd-Warshall (zastrzegaja brak ujemnych cykli!)
+
+
+
+API
+-------------------
+-konstruktor(int ile) = ustawia wielkosc grafu
+-kontruktor() = bez zakladanej z gory wielkosci, Czy ustawic jakas jednostke alokacji?
+-addEdge(int ile, bool skierowany=false) = wczytywanie krawedzi z konsoli, Czy skierowane robic osobna klasa? Graf wazony - osobna klasa.
+-changeRoot(int root) = korzen nie zawsze musi miec indeks 0
+-deleteEdge / deleteVertex  ?
+-next() = przejscie do nastepnego wierzcholka, Jeszcze nie wiem jak rozwiazac kwestie spaceru po grafie - to chyba zalezy od problemu i rodzaju grafu.
+
+
+
+Zadania z WZAIPa do testowania i wytyczania celow
+--------------------
+PT07Z (spoj) - srednica grafu, DFS
+BITMAP (spoj) - BFS,
+Gildie (main) - BFS, dwudzielnosc
+BUGLIFE (spoj) - dwudzielnosc
+SCYPHER (spoj) - MST, spojnosc
+BLINKNET (spoj) - MST, Kruskal
+558 Wormholes (UVa) - Bellman-Ford, wazone, najkr. droga
+bug [A] (main) - Dijkstra
+EZDIJKST(spoj) - Dijkstra
+ROHAAN (spoj) - Floyd-Warshall, wazone, najkr. droga
+--DFS,LCA, mosty i pkt. artykulacji--
+Blokada (main)
+ELCS (spoj)
+Bajtocki bieg uliczny (main)
+---------------
+TOPOSORT (spoj) - sortowanie topologiczne

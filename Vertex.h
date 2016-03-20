@@ -11,7 +11,7 @@
  * @param class E Klasa z dodatkowymi informacjami o krawędzi, po której dziedziczy Edge
  */
 template<class V, class E>
-class Vertex : V, public std::vector<Edge<E> >
+class Vertex : public V, public std::vector<Edge<E> >
 {
     //
 };

@@ -7,7 +7,7 @@
  * @param class E Klasa z dodatkowymi informacjami o krawędzi
  */
 template<class E>
-class Edge : E
+class Edge : public E
 {
     private:
         /** @var int v Nr wierzchołka, od którego prowadzi krawędź */
@@ -17,6 +17,16 @@ class Edge : E
         Edge(E e, int v) : E(e)
         {
             this->v = v;
+        }
+
+        /**
+         * Pobierz v
+         *
+         * @return int
+         */
+        int getV()
+        {
+            return this->v;
         }
 };
 

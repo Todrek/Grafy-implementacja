@@ -4,13 +4,13 @@
 /**
  * Szablon klasy Edge
  *
- * @param class E Klasa z dodatkowymi informacjami o krawędzi
+ * @param E Klasa z dodatkowymi informacjami o krawędzi
  */
 template<class E>
 class Edge : public E
 {
     private:
-        /** @var int v Nr wierzchołka, do którego prowadzi krawędź */
+        /** @var v Nr wierzchołka, do którego prowadzi krawędź */
         int v;
 
     public:

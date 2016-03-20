@@ -2,22 +2,44 @@
 #define GRAPTH_H
 
 #include <vector>
-
 #include "Vertex.h"
 #include "Edge.h"
 
 /**
  * Szablon klasy Grapth
  *
- * @param class V Klasa z dodatkowymi informacjami o wierchołku, po której dziedziczy Vertex
- * @param class E Klasa z dodatkowymi informacjami o krawędzi, po której dziedziczy Edge
+ * @param V Klasa z dodatkowymi informacjami o wierchołku, po której dziedziczy Vertex
+ * @param E Klasa z dodatkowymi informacjami o krawędzi, po której dziedziczy Edge
  */
 template<class V, class E>
 class Grapth
 {
     private:
-        /** @var std::vector<Vertex<V, E> > g Wektor wierzchołków */
+        /** @var g Wektor wierzchołków */
         std::vector<Vertex<V, E> > g;
+
+        /** @var t Pamiętania aktualnego czasu przetwarzania przy dfs */
+        int t;
+
+        /**
+         * Przeszukiwanie grafu w głąb, rekurencja
+         *
+         * @param v
+         */
+        void dfsR(int v)
+        {
+            g[v].setD(++this->t);
+
+            for (auto it = g[v].begin(); it != g[v].end(); it++) {
+                if (g[it->getV()].getS() == -1) {
+                    g[it->getV()].setS(v);
+
+                    this->dfsR(it->getV());
+                }
+            }
+
+            g[v].setF(++this->t);
+        }
 
     public:
         Grapth(int n = 0) : g(n)
@@ -27,9 +49,9 @@ class Grapth
         /**
          * Dodawanie krawędzi skierowanej
          *
-         * @param int b
-         * @param int e
-         * @param E d
+         * @param b
+         * @param e
+         * @param d
          */
         void edgeD(int b, int e, E d = E())
         {
@@ -39,9 +61,9 @@ class Grapth
         /**
          * Dodawanie krawędzi nieskierowanej
          *
-         * @param int b
-         * @param int e
-         * @param E d
+         * @param b
+         * @param e
+         * @param d
          */
         void edgeU(int b, int e, E d = E())
         {
@@ -56,7 +78,7 @@ class Grapth
          * int t - odległość wierzchołka od źródła wyszukiwania\n
          * int s - nr wierzchołka, z którego prowadzi znaleziona, najkrótsza trasa
          *
-         * @param int s
+         * @param s
          */
         void bfs(int s)
         {
@@ -79,6 +101,37 @@ class Grapth
                         g[qu[++e] = it->getV()].setT(g[s].getT() + 1);
                         g[it->getV()].setS(s);
                     }
+                }
+            }
+        }
+
+        /**
+         * Przeszukiwanie grafu w głąb
+         *
+         * Wierzchołek musi zawierać dodatkowe informacje:\n
+         * int d - czas wejścia do wierzchołka\n
+         * int f - czas wyjścia z wierzchołka\n
+         * int s - nr wierzchołka, z którego prowadzi znaleziona, najkrótsza trasa
+         *
+         * @param e
+         */
+        void dfs(int e = -1)
+        {
+            this->t = -1;
+
+            int b = 0;
+
+            e == -1 ? e = SIZE(this->g) - 1 : b = e;
+
+            for (int x = 0; x < SIZE(this->g); x++) {
+                this->g[x].setD(-1);
+                this->g[x].setF(-1);
+                this->g[x].setS(-1);
+            }
+
+            for (int x = b; x <= e; x++) {
+                if (this->g[x].getS() == -1) {
+                    this->dfsR(x);
                 }
             }
         }

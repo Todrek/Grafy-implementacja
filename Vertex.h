@@ -7,8 +7,8 @@
 /**
  * Szablon klasy Vertex
  *
- * @param class V Klasa z dodatkowymi informacjami o wierchołku
- * @param class E Klasa z dodatkowymi informacjami o krawędzi, po której dziedziczy Edge
+ * @param V Klasa z dodatkowymi informacjami o wierchołku
+ * @param E Klasa z dodatkowymi informacjami o krawędzi, po której dziedziczy Edge
  */
 template<class V, class E>
 class Vertex : public V, public std::vector<Edge<E> >

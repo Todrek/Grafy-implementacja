@@ -7,7 +7,7 @@
 #include "Edge.h"
 
 /**
- * Klasa Grapth
+ * Szablon klasy Grapth
  *
  * @param class V Klasa z dodatkowymi informacjami o wierchołku, po której dziedziczy Vertex
  * @param class E Klasa z dodatkowymi informacjami o krawędzi, po której dziedziczy Edge

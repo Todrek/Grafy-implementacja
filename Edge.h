@@ -2,7 +2,7 @@
 #define EDGE_H
 
 /**
- * Klasa Edge
+ * Szablon klasy Edge
  *
  * @param class E Klasa z dodatkowymi informacjami o krawędzi
  */

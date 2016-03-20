@@ -5,7 +5,7 @@
 #include "Edge.h"
 
 /**
- * Klasa Vertex
+ * Szablon klasy Vertex
  *
  * @param class V Klasa z dodatkowymi informacjami o wierchołku
  * @param class E Klasa z dodatkowymi informacjami o krawędzi, po której dziedziczy Edge

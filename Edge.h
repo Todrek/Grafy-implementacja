@@ -10,7 +10,7 @@ template<class E>
 class Edge : public E
 {
     private:
-        /** @var int v Nr wierzchołka, od którego prowadzi krawędź */
+        /** @var int v Nr wierzchołka, do którego prowadzi krawędź */
         int v;
 
     public:
@@ -18,6 +18,8 @@ class Edge : public E
         {
             this->v = v;
         }
+
+        //region Getters & Setters
 
         /**
          * Pobierz v
@@ -28,6 +30,8 @@ class Edge : public E
         {
             return this->v;
         }
+
+        //endregion
 };
 
 #endif // EDGE_H

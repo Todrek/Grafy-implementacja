@@ -52,11 +52,11 @@ class Grapth
         /**
          * Przeszukiwanie grafu wszerz.
          *
-         * Wierzchołek musi zawierać dodatkowe informacje:
-         * int t - odległość wierzchołka od źródła wyszukiwania
+         * Wierzchołek musi zawierać dodatkowe informacje:\n
+         * int t - odległość wierzchołka od źródła wyszukiwania\n
          * int s - nr wierzchołka, z którego prowadzi znaleziona, najkrótsza trasa
          *
-         * @param s int
+         * @param int s
          */
         void bfs(int s)
         {
@@ -83,6 +83,8 @@ class Grapth
             }
         }
 
+        //region Getters & Setters
+
         /**
          * Pobierz g
          *
@@ -92,6 +94,8 @@ class Grapth
         {
             return this->g;
         }
+
+        //endregion
 };
 
 #endif // GRAPTH_H

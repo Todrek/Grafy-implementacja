@@ -2,7 +2,7 @@
 #define EDGE_H
 
 /**
- * Klasa Vertex
+ * Klasa Edge
  *
  * @param class E Klasa z dodatkowymi informacjami o krawędzi
  */

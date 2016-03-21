@@ -60,7 +60,16 @@ class Grapth
         {
             g[b][e].=Edge<E>(d, e);
         }
-
+         /**
+         * Dodawanie wierzcholka
+         *
+         * @param b
+         * @param v
+         */
+        void vertice(int b, V vertice)
+        {
+           v[b] = vertice;
+        }
         /**
          * Dodawanie krawędzi nieskierowanej
          *

@@ -45,7 +45,7 @@ class Grapth
         }*/
 
     public:
-        Grapth(int n = 0) : g(n)
+        Grapth(int n = 0) : g(n, vector<Edge<E > >(n)), v(n)
         {
         }
 
@@ -58,7 +58,7 @@ class Grapth
          */
         void edgeD(int b, int e, E d = E())
         {
-            g[b].PB(Edge<E>(d, e));
+            g[b][e].=Edge<E>(d, e);
         }
 
         /**
@@ -70,8 +70,8 @@ class Grapth
          */
         void edgeU(int b, int e, E d = E())
         {
-            g[b].PB(Edge<E>(d, e));
-            g[e].PB(Edge<E>(d, b));
+            g[b][e].=Edge<E>(d, e);
+            g[e][b].=Edge<E>(d, b);
         }
 
         /**

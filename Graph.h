@@ -89,16 +89,17 @@ class Graph
 
             g[s].setT(0);
 
-            int qu[SIZE(g)], b, e;
+            int qu[SIZE(g)], b = 0, e = 0;
 
-            qu[b = e = 0] = s;
+            qu[0] = s;
 
             while (b <= e) {
                 s = qu[b++];
 
                 for (auto it = g[s].begin(); it != g[s].end(); it++) {
                     if (g[it->getV()].getT() == -1) {
-                        g[qu[++e] = it->getV()].setT(g[s].getT() + 1);
+                        qu[++e] = it->getV();
+                        g[it->getV()].setT(g[s].getT() + 1);
                         g[it->getV()].setS(s);
                     }
                 }

@@ -53,7 +53,7 @@ class Graph
        {
            int r = 0;
 
-           for (auto it = g.begin(); it != g.end(); it++) {
+           for (typename std::vector<Vertex<V, E> >::iterator it = g.begin(); it != g.end(); it++) {
                it->setT(-1);
                it->setS(-1);
            }
@@ -67,7 +67,7 @@ class Graph
            while (b <= e) {
                int k = qu[b++];
 
-               for (auto it = g[k].begin(); it != g[k].end(); it++) {
+               for (typename std::vector<Edge<E> >::iterator it = g[k].begin(); it != g[k].end(); it++) {
                    if (g[it->getV()].getT() == -1) {
                        qu[++e] = it->getV();
                        g[it->getV()].setT(g[k].getT() + 1);
@@ -144,15 +144,10 @@ int main()
             for (int j = 0 ; j < n; j++) {
                 cin >> x;
 
-                if (g.bfs(i, j) != x) {
+                if (g.bfs(i, j) != x && !err) {
                     cout << "NIE\n";
                     err = true;
-                    break;
                 }
-            }
-
-            if (err) {
-                break;
             }
         }
 

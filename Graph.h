@@ -6,13 +6,13 @@
 #include "Edge.h"
 
 /**
- * Szablon klasy Grapth
+ * Szablon klasy Graph
  *
  * @param V Klasa z dodatkowymi informacjami o wierchołku, po której dziedziczy Vertex
  * @param E Klasa z dodatkowymi informacjami o krawędzi, po której dziedziczy Edge
  */
 template<class V, class E>
-class Grapth
+class Graph
 {
     private:
         /** @var g Wektor wierzchołków */
@@ -42,7 +42,7 @@ class Grapth
         }
 
     public:
-        Grapth(int n = 0) : g(n)
+        Graph(int n = 0) : g(n)
         {
         }
 

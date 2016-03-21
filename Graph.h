@@ -80,10 +80,8 @@ class Graph
          *
          * @param s
          */
-        int bfs(int s, int m)
+        void bfs(int s)
         {
-            int r = 0;
-
             for (auto it = g.begin(); it != g.end(); it++) {
                 it->setT(-1);
                 it->setS(-1);
@@ -96,22 +94,16 @@ class Graph
             qu[0] = s;
 
             while (b <= e) {
-                int k = qu[b++];
+                s = qu[b++];
 
-                for (auto it = g[k].begin(); it != g[k].end(); it++) {
+                for (auto it = g[s].begin(); it != g[s].end(); it++) {
                     if (g[it->getV()].getT() == -1) {
                         qu[++e] = it->getV();
-                        g[it->getV()].setT(g[k].getT() + 1);
-                        g[it->getV()].setS(k);
-                    }
-
-                    if (g[k].getS() == s && it->getV() == m) {
-                        r++;
+                        g[it->getV()].setT(g[s].getT() + 1);
+                        g[it->getV()].setS(s);
                     }
                 }
             }
-
-            return r;
         }
 
         /**
